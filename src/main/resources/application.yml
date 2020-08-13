@@ -1,0 +1,24 @@
+spring:
+  resources:
+    chain:
+      cache: false
+
+  jpa:
+    database: HSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+      hibernate:
+        dialect: org.hibernate.dialect.HSQLDialect
+
+  datasource:
+    url:
+    jdbcUrl: jdbc:hsqldb:mem:testdb
+    username: sa
+    password: sa
+    driverClassName: org.hsqldb.jdbcDriver
