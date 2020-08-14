@@ -28,10 +28,3 @@ Utilize o seguinte comando para rodar a checagem:
 Testes
 ------
 1. `mvn test` para executar os testes
-
-
-Profiles
------------
-O projeto possui 2 profiles, sendo um profile para a aplicação e um segundo profile "teste" para rodar os testes.
-
-1. `mvn spring-boot:run -Dspring.profiles.active=teste` caso queira rodar o projeto utilizando o banco de teste
