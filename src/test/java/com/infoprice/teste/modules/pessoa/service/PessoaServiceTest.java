@@ -10,6 +10,7 @@ import org.mockito.AdditionalAnswers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static com.infoprice.teste.helper.TestsHelper.umaPessoa;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
+@ActiveProfiles("teste")
 public class PessoaServiceTest {
 
     @Autowired
@@ -36,8 +38,8 @@ public class PessoaServiceTest {
     @Test
     public void save_deveSalvar_seDadosValidos() {
         assertThat(service.save(umaPessoa()))
-                .extracting("id", "nome", "cpf")
-                .containsExactly(100, "Fulano", "12343245612");
+                .extracting("nome", "cpf")
+                .containsExactly("Fulano", "12343245612");
     }
 
     @Test

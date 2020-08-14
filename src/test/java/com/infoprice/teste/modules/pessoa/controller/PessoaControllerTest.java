@@ -33,7 +33,6 @@ public class PessoaControllerTest {
                 .content(convertObjectToJsonString(umaPessoa()))
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", notNullValue()))
                 .andExpect(jsonPath("$.nome", is("Fulano")))
                 .andExpect(jsonPath("$.cpf", is("12343245612")))
                 .andExpect(jsonPath("$.email", is("teste@email.com")))

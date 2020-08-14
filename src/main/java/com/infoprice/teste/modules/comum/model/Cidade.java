@@ -24,4 +24,8 @@ public class Cidade {
     @Enumerated(EnumType.STRING)
     private EEstado estado;
 
+    public Cidade(Integer id) {
+        this.id = id;
+    }
+
 }

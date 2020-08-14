@@ -9,6 +9,7 @@ import lombok.var;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,7 +21,7 @@ public class PessoaResponseDto {
     private LocalDateTime dataCadastro;
     private String cpf;
     private String email;
-    private Endereco endereco;
+    private List<Endereco> enderecos;
 
     public static PessoaResponseDto of(Pessoa pessoa) {
         var pessoaResponseDto = new PessoaResponseDto();
