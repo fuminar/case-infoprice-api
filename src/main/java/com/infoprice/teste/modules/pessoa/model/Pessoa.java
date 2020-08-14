@@ -2,7 +2,7 @@ package com.infoprice.teste.modules.pessoa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.infoprice.teste.modules.comum.util.StringUtil;
-import com.infoprice.teste.modules.endereco.model.Endereco;
+import com.infoprice.teste.modules.comum.model.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +33,13 @@ public class Pessoa {
     private String email;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
-    private List<Endereco> enderecos = new ArrayList<>();
+    @JoinTable(name = "ENDERECO_PESSOA", joinColumns = {
+            @JoinColumn(name = "FK_PESSOA", referencedColumnName = "ID",
+                    foreignKey = @ForeignKey(name = "FK_PESSOA_ENDERECO_PESSOA_REF"))}, inverseJoinColumns = {
+            @JoinColumn(name = "FK_ENDERECO", referencedColumnName = "ID",
+                    foreignKey = @ForeignKey(name = "FK_PESSOA_ENDERECO_PAR_REF"))})
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Endereco> enderecos;
 
     public void tratarDados() {
         this.cpf = Optional.ofNullable(getCpf()).map(StringUtil::getOnlyNumbers).orElse(null);

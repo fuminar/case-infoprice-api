@@ -1,7 +1,6 @@
-package com.infoprice.teste.modules.endereco.model;
+package com.infoprice.teste.modules.comum.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.infoprice.teste.modules.pessoa.model.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,13 +29,8 @@ public class Endereco {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_cidade", referencedColumnName = "id")
+    @JoinColumn(name = "fk_cidade")
     private Cidade cidade;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_pessoa", referencedColumnName = "id")
-    private Pessoa pessoa;
 
     private String cep;
 

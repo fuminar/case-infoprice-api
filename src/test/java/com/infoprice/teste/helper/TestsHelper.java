@@ -2,9 +2,9 @@ package com.infoprice.teste.helper;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.infoprice.teste.modules.endereco.enuns.EEstado;
-import com.infoprice.teste.modules.endereco.model.Cidade;
-import com.infoprice.teste.modules.endereco.model.Endereco;
+import com.infoprice.teste.modules.comum.enuns.EEstado;
+import com.infoprice.teste.modules.comum.model.Cidade;
+import com.infoprice.teste.modules.comum.model.Endereco;
 import com.infoprice.teste.modules.pessoa.model.Pessoa;
 
 import java.io.IOException;
@@ -22,7 +22,6 @@ public class TestsHelper {
 
     public static Endereco umEndereco() {
         return Endereco.builder()
-                .id(100)
                 .logradouro("Rua teste")
                 .numero("123")
                 .complemento("Complemento teste")
@@ -34,7 +33,7 @@ public class TestsHelper {
 
     public static Cidade umaCidade() {
         return Cidade.builder()
-                .id(100)
+                .id(123)
                 .nome("São Paulo")
                 .estado(EEstado.SP)
                 .build();

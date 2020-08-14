@@ -1,6 +1,6 @@
-package com.infoprice.teste.modules.endereco.model;
+package com.infoprice.teste.modules.comum.model;
 
-import com.infoprice.teste.modules.endereco.enuns.EEstado;
+import com.infoprice.teste.modules.comum.enuns.EEstado;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Cidade {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String nome;

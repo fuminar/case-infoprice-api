@@ -1,4 +1,4 @@
-package com.infoprice.teste.modules.endereco.enuns;
+package com.infoprice.teste.modules.comum.enuns;
 
 import lombok.Getter;
 
