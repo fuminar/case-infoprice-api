@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-@Sql(scripts = {"classpath:/initial-cidades.sql"})
+@Sql(scripts = {"classpath:/database/initial-cidades.sql"})
 public class CidadeControllerTest {
 
     @Autowired
