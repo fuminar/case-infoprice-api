@@ -9,7 +9,7 @@ import lombok.var;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,12 +21,13 @@ public class PessoaRequestDto {
     private LocalDateTime dataCadastro;
     private String cpf;
     private String email;
-    private Endereco endereco;
+    private List<Endereco> enderecos;
 
     public static Pessoa of(PessoaRequestDto pessoaRequestDto) {
         var pessoa = new Pessoa();
+
         BeanUtils.copyProperties(pessoaRequestDto, pessoa);
-        pessoa.setEnderecos(Arrays.asList(pessoaRequestDto.getEndereco()));
+
         return pessoa;
     }
 

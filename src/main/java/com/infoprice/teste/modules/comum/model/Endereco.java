@@ -1,6 +1,5 @@
 package com.infoprice.teste.modules.comum.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,9 +26,8 @@ public class Endereco {
 
     private String bairro;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_cidade")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_cidade", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_ENDERECO_CID"))
     private Cidade cidade;
 
     private String cep;

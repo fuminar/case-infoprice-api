@@ -38,7 +38,7 @@ public class Pessoa {
                     foreignKey = @ForeignKey(name = "FK_PESSOA_ENDERECO_PESSOA_REF"))}, inverseJoinColumns = {
             @JoinColumn(name = "FK_ENDERECO", referencedColumnName = "ID",
                     foreignKey = @ForeignKey(name = "FK_PESSOA_ENDERECO_PAR_REF"))})
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Endereco> enderecos;
 
     public void tratarDados() {
