@@ -1,6 +1,6 @@
 package com.infoprice.teste.modules.pessoa.dto;
 
-import com.infoprice.teste.modules.endereco.model.Endereco;
+import com.infoprice.teste.modules.comum.model.Endereco;
 import com.infoprice.teste.modules.pessoa.model.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Data;

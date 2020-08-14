@@ -2,7 +2,6 @@ package com.infoprice.teste.modules.pessoa.service;
 
 import com.infoprice.teste.modules.comum.dto.PageRequestDto;
 import com.infoprice.teste.modules.comum.exception.ValidacaoException;
-import com.infoprice.teste.modules.endereco.service.EnderecoService;
 import com.infoprice.teste.modules.pessoa.dto.PessoaResponseDto;
 import com.infoprice.teste.modules.pessoa.model.Pessoa;
 import com.infoprice.teste.modules.pessoa.repository.PessoaRepository;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -21,14 +19,10 @@ public class PessoaService {
 
     @Autowired
     private PessoaRepository repository;
-    @Autowired
-    private EnderecoService enderecoService;
 
-    @Transactional
     public Pessoa save(final Pessoa pessoa) {
         validarDados(pessoa);
         pessoa.tratarDados();
-        pessoa.getEnderecos().stream().forEach(enderecoService::save);
         return repository.save(pessoa);
     }
 
@@ -41,4 +35,5 @@ public class PessoaService {
         return repository.findAll(pageRequest)
                 .map(PessoaResponseDto::of);
     }
+
 }

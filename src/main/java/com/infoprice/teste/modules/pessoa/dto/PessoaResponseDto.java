@@ -1,5 +1,6 @@
 package com.infoprice.teste.modules.pessoa.dto;
 
+import com.infoprice.teste.modules.comum.model.Endereco;
 import com.infoprice.teste.modules.pessoa.model.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class PessoaResponseDto {
     private LocalDateTime dataCadastro;
     private String cpf;
     private String email;
+    private Endereco endereco;
 
     public static PessoaResponseDto of(Pessoa pessoa) {
         var pessoaResponseDto = new PessoaResponseDto();
