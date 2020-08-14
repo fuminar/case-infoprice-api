@@ -16,12 +16,11 @@ spring:
       hibernate:
         hbm2ddl:
           import_files:
-            database/initial-cidades.sql
         dialect: org.hibernate.dialect.HSQLDialect
 
   datasource:
     url:
-    jdbcUrl: jdbc:hsqldb:mem:prod
+    jdbcUrl: jdbc:hsqldb:mem:testdb
     username: sa
     password: sa
     driverClassName: org.hsqldb.jdbcDriver
